@@ -11,7 +11,7 @@ window.TKA_CONFIG = {
   //   { name: 'Cloudflare', url: 'https://tka-token.namaakun.workers.dev' },
   // Server yang alamatnya sama dengan halaman ini otomatis tidak ditulis dua kali.
   endpoints: [
-    { name: 'Server lab', url: '' },
-    { name: 'Cloudflare', url: null },
+    { name: 'Server lab', url: 'https://token.labpplg.web.id' },
+    { name: 'Cloudflare', url: 'https://tka-token.acksyavi.workers.dev' },
   ],
 };
