@@ -88,6 +88,27 @@
     });
   }
 
+  // Layar penuh: otomatis kalau dipasang sebagai aplikasi (PWA). Di browser biasa,
+  // sentuh layar atau tekan OK di remote sekali (browser mewajibkan aksi pengguna).
+  function goFullscreen() {
+    var el = document.documentElement;
+    if (document.fullscreenElement || document.webkitFullscreenElement) return;
+    var req = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!req) return;
+    try {
+      var p = req.call(el);
+      if (p && p.catch) p.catch(function () {});
+    } catch (e) {}
+  }
+  document.addEventListener('click', goFullscreen);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13 || e.keyCode === 23) goFullscreen();
+  });
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(function () {});
+  }
+
   setInterval(tick, 250);
   poll();
 })();

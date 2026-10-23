@@ -44,6 +44,8 @@ const TYPES = {
   '.js': 'text/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.woff2': 'font/woff2',
+  '.png': 'image/png',
+  '.webmanifest': 'application/manifest+json',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
 };
