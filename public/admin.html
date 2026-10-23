@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Admin Token TKA</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="admin">
+<div class="admin-wrap">
+  <h1>Admin token TKA</h1>
+  <p class="sub">Simpan di sini, layar TV ikut berganti dalam ±5 detik. <a href="/" target="_blank">Buka tampilan TV</a></p>
+
+  <div class="card pin-card">
+    <label class="field" for="pin">PIN admin</label>
+    <input id="pin" type="password" autocomplete="current-password" placeholder="Masukkan PIN">
+    <div class="note" style="margin-top:6px">PIN tersimpan di browser ini sampai tab ditutup.</div>
+  </div>
+
+  <div class="card smk" data-key="smk">
+    <h2>SMK</h2>
+    <label class="field" for="tok-smk">Token baru</label>
+    <input id="tok-smk" class="tok" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCDEF">
+    <div class="err"></div>
+    <div class="row">
+      <button class="save">Simpan token SMK</button>
+      <button class="ghost clear" title="Kosongkan token SMK">Kosongkan</button>
+    </div>
+    <div class="result"></div>
+    <div class="hosts"></div>
+  </div>
+
+  <div class="card sma" data-key="sma">
+    <h2>SMA</h2>
+    <label class="field" for="tok-sma">Token baru</label>
+    <input id="tok-sma" class="tok" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCDEF">
+    <div class="err"></div>
+    <div class="row">
+      <button class="save">Simpan token SMA</button>
+      <button class="ghost clear" title="Kosongkan token SMA">Kosongkan</button>
+    </div>
+    <div class="result"></div>
+    <div class="hosts"></div>
+  </div>
+
+  <p class="note" id="cfg-note"></p>
+</div>
+<script src="/config.js"></script>
+<script src="/common.js"></script>
+<script src="/admin.js"></script>
+</body>
+</html>

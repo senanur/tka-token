@@ -1,0 +1,16 @@
+{
+  "name": "tka-token",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/server.js",
+    "cf:dev": "cd worker && npx wrangler dev",
+    "cf:deploy": "cd worker && npx wrangler deploy"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  }
+}

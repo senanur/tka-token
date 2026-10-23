@@ -1,0 +1,15 @@
+[Unit]
+Description=Token TKA
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/tka-token
+ExecStart=/usr/bin/node server/server.js
+Environment=PORT=8080
+Environment=ADMIN_PIN=ganti-dengan-pin-anda
+Restart=always
+RestartSec=2
+User=www-data
+
+[Install]
+WantedBy=multi-user.target

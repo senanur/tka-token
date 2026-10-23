@@ -1,0 +1,22 @@
+name = "tka-token"
+main = "src/index.js"
+compatibility_date = "2026-06-01"
+
+[vars]
+DURATION_SEC = "300"
+# ADMIN_PIN jangan ditulis di sini. Set sebagai secret:
+#   npx wrangler secret put ADMIN_PIN
+
+[assets]
+directory = "../public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[durable_objects.bindings]]
+name = "TOKEN_STORE"
+class_name = "TokenStore"
+
+# SQLite-backed Durable Object: tersedia di paket gratis Workers.
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["TokenStore"]
