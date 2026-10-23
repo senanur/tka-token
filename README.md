@@ -7,6 +7,15 @@ Layar token TKA untuk TV/IFP. Token SMK dan SMA tampil besar, diperbarui dari HP
 | `/` | Tampilan TV (buka fullscreen di browser TV/IFP) |
 | `/admin` | Admin, dari HP/laptop. Perlu PIN. |
 
+## Alamat deploy
+
+| Server | Alamat | Deploy |
+|---|---|---|
+| Server lab | https://token.labpplg.web.id | Dokploy, project `tka-token`. Otomatis setiap push ke `main` (webhook GitHub). |
+| Cloudflare | https://tka-token.acksyavi.workers.dev | `npm run cf:deploy` (manual) |
+
+Admin bisa dibuka dari kedua alamat; keduanya https, jadi token selalu ditulis ke dua server.
+
 ## Struktur
 
 ```
