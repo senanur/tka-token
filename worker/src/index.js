@@ -21,7 +21,7 @@ export class TokenStore extends DurableObject {
       readBody: () => request.json(),
       store: this.store,
       adminPin: this.env.ADMIN_PIN,
-      durationSec: Number(this.env.DURATION_SEC || 300),
+      durationSec: Number(this.env.DURATION_SEC || 600),
       limiter: this.limiter,
     });
     return new Response(out.body === null ? null : JSON.stringify(out.body), {

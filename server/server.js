@@ -11,7 +11,7 @@ const PUBLIC_DIR = path.join(ROOT, 'public');
 const PORT = Number(process.env.PORT || 8080);
 const HOST = process.env.HOST || '0.0.0.0';
 const ADMIN_PIN = process.env.ADMIN_PIN || '';
-const DURATION_SEC = Number(process.env.DURATION_SEC || 300);
+const DURATION_SEC = Number(process.env.DURATION_SEC || 600);
 const DATA_FILE = process.env.DATA_FILE || path.join(ROOT, 'data', 'state.json');
 
 if (ADMIN_PIN.length < 6) {

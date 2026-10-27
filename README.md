@@ -35,7 +35,7 @@ ADMIN_PIN='pin-rahasia-anda' node server/server.js
 # Token TKA berjalan di http://0.0.0.0:8080  (admin: /admin)
 ```
 
-Variabel opsional: `PORT` (8080), `DURATION_SEC` (300, lama hitung mundur), `DATA_FILE`.
+Variabel opsional: `PORT` (8080), `DURATION_SEC` (600, periode token; hitung mundur berakhir di kelipatan jam bulat), `DATA_FILE`.
 
 **Dengan Docker / Dokploy:** sudah ada `Dockerfile`. Set `ADMIN_PIN` di environment, dan mount volume ke `/app/data` supaya token tidak hilang saat container restart.
 
@@ -74,7 +74,7 @@ Lalu jalankan ulang server lab dan `npx wrangler deploy` lagi, supaya kedua serv
 3. Begitu menekan tombol token di situs TKA, ketik token di kartu SMK atau SMA, tekan **Simpan** (atau Enter).
 4. Cek baris hasil: ✓ per server. Di bawahnya, isi tiap server dipantau tiap 5 detik. Muncul **beda!** kalau isi antar server tidak sama.
 
-Hitung mundur 5 menit dimulai saat token disimpan, jadi sedikit lebih lambat dari hitungan di situs TKA. Saat tinggal 1 menit penanda berwarna kuning, dan saat habis berubah merah "Waktu habis" sebagai pengingat ganti token.
+Token TKA berganti tiap 10 menit mengikuti jam (:00, :10, :20, ...). Hitung mundur berakhir di batas 10 menit berikutnya setelah token disimpan, contoh: disimpan 08.03 → habis 08.10. Saat tinggal 1 menit penanda berwarna kuning, dan saat habis berubah merah "Waktu habis" sebagai pengingat ganti token.
 
 ## Perilaku saat gangguan
 

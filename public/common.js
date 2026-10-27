@@ -15,11 +15,14 @@
   window.TKA = {
     clock: function (ms) { return fmt.format(new Date(ms)).replace(/\./g, ':'); },
 
-    // Sisa waktu "m:ss", atau null kalau sudah habis.
+    // Sisa detik sampai token habis, atau null kalau belum ada token.
+    // Token TKA berganti mengikuti jam: periode durationSec dihitung dari jam bulat
+    // (600 = tiap :00, :10, :20, ...). Token yang disimpan 08:03 habis 08:10.
     remaining: function (entry, durationSec, nowMs) {
       if (!entry) return null;
-      var left = Math.ceil((entry.updatedAt + durationSec * 1000 - nowMs) / 1000);
-      return left;
+      var period = durationSec * 1000;
+      var expiresAt = (Math.floor(entry.updatedAt / period) + 1) * period;
+      return Math.ceil((expiresAt - nowMs) / 1000);
     },
     mmss: function (sec) { return Math.floor(sec / 60) + ':' + pad(sec % 60); },
 
