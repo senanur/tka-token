@@ -44,6 +44,7 @@ body.display { overflow: hidden; cursor: none; }
 .slot.sma .token { color: var(--sma); }
 .token.empty { font-size: clamp(20px, 5vh, 60px); color: var(--muted) !important; }
 .token.changed { animation: flash 1.2s ease-out 3; }
+.slot.expired .token { color: #c4c4c4; animation: none; }
 @keyframes flash { 0% { background: #fff1a8; } 100% { background: transparent; } }
 
 /* ---------- Admin ---------- */

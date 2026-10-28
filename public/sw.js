@@ -29,6 +29,6 @@ self.addEventListener('fetch', function (e) {
     }
     return res;
   }).catch(function () {
-    return caches.match(req).then(function (hit) { return hit || Response.error(); });
+    return caches.match(req, { ignoreSearch: true }).then(function (hit) { return hit || Response.error(); });
   }));
 });

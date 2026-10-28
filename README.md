@@ -74,7 +74,7 @@ Lalu jalankan ulang server lab dan `npx wrangler deploy` lagi, supaya kedua serv
 3. Begitu menekan tombol token di situs TKA, ketik token di kartu SMK atau SMA, tekan **Simpan** (atau Enter).
 4. Cek baris hasil: ✓ per server. Di bawahnya, isi tiap server dipantau tiap 5 detik. Muncul **beda!** kalau isi antar server tidak sama.
 
-Token TKA berganti tiap 10 menit mengikuti jam (:00, :10, :20, ...). Hitung mundur berakhir di batas 10 menit berikutnya setelah token disimpan, contoh: disimpan 08.03 → habis 08.10. Saat tinggal 1 menit penanda berwarna kuning, dan saat habis berubah merah "Waktu habis" sebagai pengingat ganti token.
+Token TKA berganti tiap 10 menit mengikuti jam (:00, :10, :20, ...). Hitung mundur berakhir di batas 10 menit berikutnya setelah token disimpan, contoh: disimpan 08.03 → habis 08.10. Saat tinggal 1 menit penanda berwarna kuning. Saat habis, token di TV menjadi abu-abu dengan tanda merah "Waktu habis · menunggu token baru" supaya tidak diketik siswa. Kalau 10 menit setelahnya belum ada token baru, TV menampilkan "Belum ada token" (token tetap tersimpan di server dan terlihat di admin).
 
 ## Perilaku saat gangguan
 

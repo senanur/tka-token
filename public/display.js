@@ -50,13 +50,20 @@
     }
   }
 
-  function renderCountdowns() {
+  // Token habis: tetap tampil tapi abu-abu, supaya tidak diketik siswa.
+  // Lewat satu periode lagi tanpa token baru: anggap kosong (mis. sisa kemarin).
+  function renderSlots() {
     if (!state) return;
     ['smk', 'sma'].forEach(function (key) {
-      var el = document.querySelector('.slot[data-key="' + key + '"] .countdown');
-      var left = TKA.remaining(state[key], state.durationSec, now());
+      var slot = document.querySelector('.slot[data-key="' + key + '"]');
+      var el = slot.querySelector('.countdown');
+      var entry = state[key];
+      var left = TKA.remaining(entry, state.durationSec, now());
+      if (left !== null && left <= -state.durationSec) { entry = null; left = null; }
+      renderToken(key, entry);
+      slot.className = slot.className.replace(/ expired/g, '') + (left !== null && left <= 0 ? ' expired' : '');
       if (left === null) { el.textContent = ''; el.className = 'countdown'; return; }
-      if (left <= 0) { el.textContent = 'Waktu habis'; el.className = 'countdown over'; return; }
+      if (left <= 0) { el.textContent = 'Waktu habis · menunggu token baru'; el.className = 'countdown over'; return; }
       el.textContent = 'Sisa ' + TKA.mmss(left);
       el.className = 'countdown' + (left <= 60 ? ' low' : '');
     });
@@ -64,7 +71,7 @@
 
   function tick() {
     clockEl.textContent = TKA.clock(now());
-    renderCountdowns();
+    renderSlots();
     if (lastOkAt && Date.now() - lastOkAt > STALE_MS) {
       setStatus('bad', 'Koneksi terputus · data mungkin usang');
     }
@@ -75,8 +82,6 @@
       state = res.data;
       offset = res.offset;
       lastOkAt = Date.now();
-      renderToken('smk', state.smk);
-      renderToken('sma', state.sma);
       setStatus('ok', 'Terhubung');
       tick();
       if (Date.now() - loadedAt > RELOAD_MS) location.reload();
